@@ -69,22 +69,67 @@ if (isset($_GET['del'])) {
                 </tr>
                 <?php
 
+                if (isset($_GET['pageno'])) {
+                    $pageno = $_GET['pageno'];
+                } else {
+                    $pageno = 1;
+                }
 
+                
                 $list = $processor->GetData(2);
 
+                $size_page = 10;
+                $leftoffset = ($pageno - 1) * $size_page;
+                $rightoffset = $pageno*$size_page > count($list) ? count($list) : $pageno * $size_page + 1 ;
+                // $rightoffset = $pageno * $size_page;
+                $total_pages = ceil(count($list) / $size_page);
+
                 $result = '';
-                foreach ($list as $movie) {
+
+                for($i = $leftoffset+1; $i < $rightoffset; $i++){
                     $result .= '<tr>';
-                    $result .= '<td class="title-column">' . $movie['title'] . '</td>';
-                    $result .= '<td class="genre-column">' . $movie['genre'] . '</td>';
-                    $result .= '<td>' . $movie['date_production'] . '</td>';
-                    $result .= '<td><a href="?del=' . $movie['id'] . '">Delete movie</a></td>';
-                    $result .= '<td><a href="ChangeInfo.php?id=' . $movie['id'] . '">Change info</a></td>';
+                    $result .= '<td class="title-column">' . $list[$i]['title'] . '</td>';
+                    $result .= '<td class="genre-column">' . $list[$i]['genre'] . '</td>';
+                    $result .= '<td>' . $list[$i]['date_production'] . '</td>';
+                    $result .= '<td><a href="?del=' . $list[$i]['id'] . '">Delete movie</a></td>';
+                    $result .= '<td><a href="ChangeInfo.php?id=' . $list[$i]['id'] . '">Change info</a></td>';
                     $result .= '</tr>';
                 }
+
+                // foreach ($list as $movie) {
+                //     $result .= '<tr>';
+                //     $result .= '<td class="title-column">' . $movie['title'] . '</td>';
+                //     $result .= '<td class="genre-column">' . $movie['genre'] . '</td>';
+                //     $result .= '<td>' . $movie['date_production'] . '</td>';
+                //     $result .= '<td><a href="?del=' . $movie['id'] . '">Delete movie</a></td>';
+                //     $result .= '<td><a href="ChangeInfo.php?id=' . $movie['id'] . '">Change info</a></td>';
+                //     $result .= '</tr>';
+                // }
                 echo $result;
                 ?>
             </table>
+            <ul class="pagination">
+                <li><a href="?pageno=1">First</a></li>
+                <li class="<?php if ($pageno <= 1) {
+                                echo 'disabled';
+                            } ?>">
+                    <a href="<?php if ($pageno <= 1) {
+                                    echo '#';
+                                } else {
+                                    echo "?pageno=" . ($pageno - 1);
+                                } ?>">Prev</a>
+                </li>
+                <li class="<?php if ($pageno >= $total_pages) {
+                                echo 'disabled';
+                            } ?>">
+                    <a href="<?php if ($pageno >= $total_pages) {
+                                    echo '#';
+                                } else {
+                                    echo "?pageno=" . ($pageno + 1);
+                                } ?>">Next</a>
+                </li>
+                <li><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
+            </ul>
         </div>
     </div>
 </body>

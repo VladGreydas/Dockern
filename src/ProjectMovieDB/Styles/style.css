@@ -213,3 +213,12 @@ table, th, tr, td{
     min-height: 200px;
     min-width: 500px;
 }
+
+.pagination a{
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    height: 30px;
+    color: #ffffff;
+    background-color: #7c0015;
+}
