@@ -1,0 +1,20 @@
+[Info  - 2:15:14 PM] Initialising intelephense 1.7.1
+[Info  - 2:15:16 PM] Reading state from /home/greyda/.config/Code/User/workspaceStorage/cc5c8b0681b4353141ebce8415f4a33e/bmewburn.vscode-intelephense-client/41014f33.
+[Info  - 2:15:16 PM] Initialised in 1416 ms
+[Info  - 2:15:17 PM] Indexing started.
+[Info  - 2:15:17 PM] Indexing ended. 1 files indexed in 0s.
+[Info  - 2:15:18 PM] Writing state to /home/greyda/.config/Code/User/workspaceStorage/cc5c8b0681b4353141ebce8415f4a33e/bmewburn.vscode-intelephense-client/41014f33.
+[Info  - 2:15:18 PM] Wrote state in 0.5s.
+ApplicationInsights:CorrelationIdManager [
+  Error: getaddrinfo EAI_AGAIN dc.services.visualstudio.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26) {
+    errno: -3001,
+    code: 'EAI_AGAIN',
+    syscall: 'getaddrinfo',
+    hostname: 'dc.services.visualstudio.com'
+  }
+]
+[Info  - 2:48:35 PM] Indexing started.
+[Info  - 2:48:35 PM] Indexing ended. 1 files indexed in 0s.
+[Info  - 2:57:53 PM] Indexing started.
+[Info  - 2:57:53 PM] Indexing ended. 1 files indexed in 0s.
