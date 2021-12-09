@@ -108,11 +108,11 @@ if (isset($_GET['del'])) {
                 echo $result;
                 ?>
             </table>
-            <div class="pagination">
-            <a href="?pageno=1">First</a>
-            <a href="<?php if ($pageno <= 1) { echo '#';} else {echo "?pageno=" . ($pageno - 1);} ?>">Prev</a>
-            <a href="<?php if ($pageno >= $total_pages) { echo '#';} else {echo "?pageno=" . ($pageno + 1);} ?>">Next</a>
-            <a href="?pageno=<?php echo $total_pages; ?>">Last</a>
+            <div class="Pagination">
+                <a href="?pageno=1">First</a>
+                <a href="<?php if ($pageno <= 1) { echo '#';} else {echo "?pageno=" . ($pageno - 1);} ?>">Prev</a>
+                <a href="<?php if ($pageno >= $total_pages) { echo '#';} else {echo "?pageno=" . ($pageno + 1);} ?>">Next</a>
+                <a href="?pageno=<?php echo $total_pages; ?>">Last</a>
             </div>            
         </div>
     </div>
